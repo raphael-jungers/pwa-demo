@@ -1,0 +1,10 @@
+applications:
+  - name: client-web
+    path: ./dist/store-app
+    memory: 32M
+    disk_quota: 32M
+    instances: 1
+    buildpacks:
+      - staticfile_buildpack
+    routes:
+      - route: https://store-app.cfapps.io
