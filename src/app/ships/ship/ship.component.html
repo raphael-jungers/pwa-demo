@@ -1,0 +1,11 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-title>{{ship?.name}}</div>
+  </mat-card-header>
+  <div>
+    {{ship?.description}}
+  </div>
+  <mat-card-actions>
+    <button mat-button color="warn" (click)="deleteShip()">DELETE</button>
+  </mat-card-actions>
+</mat-card>

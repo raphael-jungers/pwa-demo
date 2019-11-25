@@ -1,0 +1,18 @@
+<h3 mat-dialog-title>Add a ship</h3>
+<form #addShipForm="ngForm" (ngSubmit)="onSubmit(addShipForm)">
+  <div mat-dialog-content>
+    <mat-form-field>
+      <label>
+        <input matInput placeholder="Title" name="name" ngModel required>
+      </label>
+    </mat-form-field>
+    <mat-form-field>
+      <label>
+        <textarea matInput placeholder="Description" name="description" ngModel required></textarea>
+      </label>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button type="submit" mat-raised-button color="accent" [disabled]="addShipForm.invalid">Add</button>
+  </div>
+</form>

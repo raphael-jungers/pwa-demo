@@ -1,0 +1,9 @@
+<section>
+  <h2>The Ships</h2>
+  <div class="card-container">
+    <button mat-raised-button color="accent" (click)="addShip()">Add a ship</button>
+    <ng-container *ngFor="let ship of ships">
+      <app-ship [ship]="ship" (shipDeleted)="deleteShip($event)"></app-ship>
+    </ng-container>
+  </div>
+</section>
