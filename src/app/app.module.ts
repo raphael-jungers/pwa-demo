@@ -9,10 +9,19 @@ import {environment} from '../environments/environment';
 import {DBConfig, NgxIndexedDBModule} from 'ngx-indexed-db';
 import {ShipComponent} from './ships/ship/ship.component';
 import {AddShipComponent} from './ships/add-ship/add-ship.component';
-import {MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatToolbarModule
+} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AboutComponent} from './about/about.component';
 import {ShipsComponent} from './ships/ships.component';
+import {WebcamModule} from 'ngx-webcam';
 
 const dbConfig: DBConfig = {
   name: 'Store', version: 1, objectStoresMeta: [
@@ -42,6 +51,7 @@ const dbConfig: DBConfig = {
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
     NgxIndexedDBModule.forRoot(dbConfig),
+    WebcamModule,
     MatToolbarModule,
     MatButtonModule,
     MatDialogModule,
@@ -49,7 +59,8 @@ const dbConfig: DBConfig = {
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   providers: [],
   entryComponents: [

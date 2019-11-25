@@ -15,7 +15,8 @@ export class ShipsService {
     console.log(ship);
     return this.db.add({
       name: ship.name,
-      description: ship.description
+      description: ship.description,
+      picture: ship.picture
     });
   }
 

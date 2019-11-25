@@ -11,8 +11,28 @@
         <textarea matInput placeholder="Description" name="description" ngModel required></textarea>
       </label>
     </mat-form-field>
+    <div class="preview" *ngIf="takingPicture && !preview">
+      <webcam (initError)="handleInitError($event)" width="240" [trigger]="takePictureEmitter"
+              (imageCapture)="pictureTaken($event)"></webcam>
+      <div>
+        <button type="button" mat-icon-button color="accent" (click)="takePicture()">
+          <mat-icon>camera</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="preview" *ngIf="preview">
+      <img [src]="preview" width="240">
+      <div>
+        <button type="button" mat-icon-button color="accent" (click)="clearPicture()">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </div>
+    </div>
   </div>
   <div mat-dialog-actions>
+    <button type="button" mat-raised-button color="primary" [disabled]="takingPicture" (click)="previewPicture()">
+      Upload a picture
+    </button>
     <button type="submit" mat-raised-button color="accent" [disabled]="addShipForm.invalid">Add</button>
   </div>
 </form>
